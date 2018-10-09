@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Dogfriend
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.dogfriend
+Build-Jdk: 1.8.0_161
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/project
+Created-By: Maven Integration for Eclipse
+
