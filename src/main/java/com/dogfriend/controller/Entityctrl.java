@@ -4,7 +4,7 @@ package com.dogfriend.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dogfriend.domain.DogfriendVO;
+import com.dogfriend.domain.tempHumiVO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class Entityctrl {
 	
 	@GetMapping("/sendlist") //requestMapping + mothod get
-	public ResponseEntity<List<DogfriendVO>> sendList() {
-		List <DogfriendVO> list = new ArrayList<>();
-		DogfriendVO dogvo = new DogfriendVO();
+	public ResponseEntity<List<tempHumiVO>> sendList() {
+		List <tempHumiVO> list = new ArrayList<>();
+		tempHumiVO tmpHum = new tempHumiVO();
 
-		dogvo.setTemp(null);
-		dogvo.setHumi("20.3");
+		tmpHum.setTemp(null);
+		tmpHum.setHumi("20.3");
 		
-		list.add(dogvo);
+		list.add(tmpHum);
 
-		String x = dogvo.getTemp();
+		String x = tmpHum.getTemp();
 		if(x != null)
 			return new ResponseEntity<>(list, HttpStatus.OK);
 		else 

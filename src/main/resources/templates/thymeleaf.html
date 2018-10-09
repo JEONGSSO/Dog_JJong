@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello Thymeleaf</title>
+</head>
+
+<body>
+  <dl> 
+    <dt>temp</dt>
+      <dd th:text="${data.temp}"></dd> 
+    <dt>humi</dt>
+      <dd th:text="${data.humi}"></dd>
+    <form action="/post" method="POST">
+      <input type="text" name="name"/ >
+      <input type="submit" value="전송"/>
+    </form>
+    <div th:text="${message}"/>
+  </dl>
+</body>
+
+</html>
