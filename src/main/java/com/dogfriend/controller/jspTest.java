@@ -39,12 +39,3 @@ public class jspTest {
 
 }
 
-/*@RequestMapping("/thyme")
-	public String thymeleaf(tempHumiVO vo, Model model) {
-		vo.setHumi("3123");
-		vo.setTemp("2323");
-
-		model.addAttribute("data", vo);
-		model.addAttribute("message", "WOW");
-		return "test";
-	}*/
