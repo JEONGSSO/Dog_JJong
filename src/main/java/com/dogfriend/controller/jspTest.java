@@ -32,6 +32,11 @@ public class jspTest {
 		return "/post";
 	}
 
+	@RequestMapping("/") //requestMapping + mothod get
+	public String jsptest() {
+	return "/test";
+	}
+
 
 }
 
