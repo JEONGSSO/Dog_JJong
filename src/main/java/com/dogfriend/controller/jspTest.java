@@ -33,8 +33,8 @@ public class jspTest {
 	}
 
 	@RequestMapping("/") //requestMapping + mothod get
-	public String jsptest() {
-	return "/test";
+	public String dogHome() {
+	return "/dogHome";
 	}
 
 
