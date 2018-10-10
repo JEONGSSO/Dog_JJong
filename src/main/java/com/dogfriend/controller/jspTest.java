@@ -34,7 +34,7 @@ public class jspTest {
 
 	@RequestMapping("/") //requestMapping + mothod get
 	public String dogHome() {
-	return "/dogHome";
+	return "dogHome";
 	}
 
 
