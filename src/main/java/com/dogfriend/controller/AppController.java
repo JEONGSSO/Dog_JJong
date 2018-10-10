@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController	//controller + reponseBody 객체를 리턴하면 json으로 출력
-@RequestMapping("/dog")
+@RequestMapping("/")
 public class AppController {
 	
 	@GetMapping("/view/{temp}/{humi}")	//온습도 requestMapping + mothod get
