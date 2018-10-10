@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    온습도
     <p>www.dogfriends.site/view/{temp}/{humi}</p>
 
     수정 중
