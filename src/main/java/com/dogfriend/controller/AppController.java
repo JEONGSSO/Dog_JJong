@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.dogfriend.domain.tempHumiVO;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,18 @@ public class AppController {
 		HashMap<Integer, Boolean> hashMap = new HashMap<>();
 		hashMap.put(1, true);
 		hashMap.put(2, false);
+		
+		return hashMap;
+	}
+
+	@GetMapping("/pa")
+	public Map<Integer, Boolean> pathOrRequestParam(Model model) 
+	{
+		HashMap<Integer, Boolean> hashMap = new HashMap<>();
+		hashMap.put(1, true);
+		hashMap.put(2, false);
+
+		
 		
 		return hashMap;
 	}

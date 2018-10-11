@@ -1,5 +1,5 @@
 /*	
-	 * 	ResponseEntity : JSON 데이터와 HTTP 상태 메세지 반환
+	 * ResponseEntity : JSON 데이터와 HTTP 상태 메세지 반환
 	 * 
 	 * @RequestMapping : 특정 uri매칭되는 클래스나 메소드 명시
 	 * @PathVariable : url에서 원하는 정보 추출할때
@@ -8,3 +8,26 @@
 	 * @ModelAttribute : 자동으로 해당 객체를 뷰까지 전달하게끔
 	 * @RequestParam : 요청에서 특정한 파라메터 값을 찾아낼 때
 	 */
+
+	/*@Controller
+	@RequestMapping("/")
+	public class WebController {
+	
+		@Autowired
+		private RedisUtil util;
+		private JedisPool jedisPool = null;
+
+		@RequestMapping(value = "/getSensorData", method = RequestMethod.POST)
+			public @ResponseBody List<String> findValue(@RequestBody SensorData sensorData,@RequestParam("reqData") int reqData) {
+				List<String>  retrieveMap=null;
+				jedisPool = util.getJedisPool();
+				try (Jedis jedis = jedisPool.getResource()) {
+				String key=getListKey(sensorData.getSensorType(),sensorData.getSensorLocation());
+				retrieveMap = jedis.lrange(key, 0, reqData);
+				}
+				return retrieveMap;
+			}
+		private String getListKey(String sensorType,String location){
+				return sensorType+":"+location;
+			}
+	}
