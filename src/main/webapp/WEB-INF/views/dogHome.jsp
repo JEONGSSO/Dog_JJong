@@ -14,6 +14,6 @@
     <b>아두이노 온습도 : </b>
          <p>www.dogfriends.site/setTempHumi</p>
     <b>수정 중 : 자동제어 온오프   </b>
-        <p>www.dogfriends.site/ctrl/</p>
+        <p>www.dogfriends.site/ctrl</p>
 </body>
 </html>

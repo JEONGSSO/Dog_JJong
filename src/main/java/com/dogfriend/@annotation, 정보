@@ -10,5 +10,10 @@
 	 * @ResponseBody : 리턴타입이 http의 응답 메시지(Json등)로 전송, 자바 객체를 HTTP 요청의 body 내용으로 매핑하는 역할을 합니다.
 
 	 * @ModelAttribute : 자동으로 해당 객체를 뷰까지 전달하게끔
+
+
+	netstat -a -o 후 8080포트 pid확인하고
+	
+	 Taskkill /PID <pid> /F	
 	
 	 
