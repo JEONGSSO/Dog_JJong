@@ -75,26 +75,19 @@
             <version>1.1.1</version>
         </dependency>
 
-		<!-- Test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency> 
-
-		<!--
+		<!--	vue같은 툴
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		-->
-		
+
+	<!-- jsp 볼 수 있게 추가 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
- 
+	<!-- jsp 볼 수 있게 추가 -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
