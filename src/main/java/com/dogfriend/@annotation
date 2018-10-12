@@ -1,0 +1,14 @@
+	
+	 * @ResponseEntity : JSON 데이터와 HTTP 상태 메세지 반환
+	 * 
+	 * @RequestMapping : 특정 uri매칭되는 클래스나 메소드 명시
+	 * @PathVariable : url에서 원하는 정보 추출할때
+	 * @RequestParam : 요청에서 특정한 파라메터 값을 찾아낼 때
+
+	 * @RequestBody : 요청 문자열이 그대로 파라메터로 전달(매개변수로 JSON 데이터를 받는다고 생각),
+	 					HTTP 요청의 body 내용을 자바 객체로 매핑하는 역할을 합니다.
+	 * @ResponseBody : 리턴타입이 http의 응답 메시지(Json등)로 전송, 자바 객체를 HTTP 요청의 body 내용으로 매핑하는 역할을 합니다.
+
+	 * @ModelAttribute : 자동으로 해당 객체를 뷰까지 전달하게끔
+	
+	 

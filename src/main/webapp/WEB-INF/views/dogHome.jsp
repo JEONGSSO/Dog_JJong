@@ -9,8 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <b>온습도받기 : </b>
-         <p>www.dogfriends.site/view/{temp}/{humi}</p>
+    <b>안드로이드 온습도받기 : </b>
+         <p>www.dogfriends.site/view</p>
+    <b>아두이노 온습도 : </b>
+         <p>www.dogfriends.site/setTempHumi</p>
     <b>수정 중 : 자동제어 온오프   </b>
         <p>www.dogfriends.site/ctrl/</p>
 </body>

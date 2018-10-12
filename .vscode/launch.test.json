@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "project",
+                "projectName": "project",
+                "workingDirectory": "c:\\Users\\Administrator\\Documents\\workspace-sts-3.9.5.RELEASE\\dogfriend2",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "project",
+                "projectName": "project",
+                "workingDirectory": "c:\\Users\\Administrator\\Documents\\workspace-sts-3.9.5.RELEASE\\dogfriend2",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
