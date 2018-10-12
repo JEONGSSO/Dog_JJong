@@ -31,18 +31,18 @@ public class HandleController{
 		}
 	}
 
-// ////////////////////////////안드로이드에서 버튼 눌렀을 때 아두이노로 보내기////////////////////////////////////
-// 	@GetMapping("/sendarduino")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
-// 	public ResponseEntity<String> sendArduinoTempHumi() {	
+////////////////////////////안드로이드에서 버튼 눌렀을 때 아두이노로 보내기////////////////////////////////////
+	@GetMapping("/sendarduino")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
+	public ResponseEntity<String> sendArduinoTempHumi() {	
 
-// 		try {
-// 			return new ResponseEntity<>(handle,HttpStatus.OK);	//성공시 success에 ok를 담는다.
+		try {
+			return new ResponseEntity<>(handle,HttpStatus.OK);	//성공시 success에 ok를 담는다.
 
-// 		} catch (Exception e) {
-// 			e.printStackTrace(); //예외 오류
-// 			return new ResponseEntity<>("fail",HttpStatus.BAD_REQUEST); //성공시 fail bad 담는다.
-// 		}
-// 	}
+		} catch (Exception e) {
+			e.printStackTrace(); //예외 오류
+			return new ResponseEntity<>("fail",HttpStatus.BAD_REQUEST); //성공시 fail bad 담는다.
+		}
+	}
 
 	@GetMapping("/ctrl")
 	public Map<Integer,Boolean> autoCotrol() 	//통신규약 정하기

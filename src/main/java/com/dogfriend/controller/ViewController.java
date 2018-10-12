@@ -25,7 +25,7 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 }
 
 //////////////////////////온습도 아두이노에서 받기///////////////////////////////////////
-	@GetMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
+	@PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
 	public ResponseEntity<String> revArduinoTempHumi(@RequestBody TempHumiVO vo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 		try {
 				temHum.setTemp(vo.getTemp());	//body에서 읽은 값 set해주기
