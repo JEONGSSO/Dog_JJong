@@ -1,8 +1,5 @@
 package com.dogfriend.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.dogfriend.domain.TempHumiVO;
 
 import org.springframework.http.HttpStatus;
