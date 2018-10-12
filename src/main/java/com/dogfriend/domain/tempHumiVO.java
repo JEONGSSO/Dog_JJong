@@ -3,7 +3,7 @@ package com.dogfriend.domain;
 import lombok.Data;
 
 @Data
-public class tempHumiVO {
-	private String temp;
-	private String humi;
+public class TempHumiVO {
+	private int temp;
+	private int humi;
 }

@@ -6,12 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
-@EnableAutoConfiguration(exclude=	//1008 톰캣 안켜있는데 켜있다할때 넣음
-						 {DataSourceAutoConfiguration.class})
 @SpringBootApplication	
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})	//1008 톰캣 안켜있는데 켜있다할때 넣음 그래도 안되면 componentscan잠시 주석후 껐다가 다시 주석 풀기
 @ComponentScan("com.dogfriend")
 public class DogfriendApplication {
-
+    
 	public static void main(String[] args) {
 		SpringApplication.run(DogfriendApplication.class, args);
 	}

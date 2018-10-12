@@ -6,8 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+//컨트롤러 붙이니 에러났다.
 public class test{
+
 @RequestMapping("/test") //requestMapping + mothod get
 	public String jsptest(Model model,
 						@RequestParam(value="test")String test) {
@@ -27,5 +28,12 @@ public class test{
 		model.addAttribute("name", name);
 		System.out.println(name);
 		return "/post";
-    }
+	}
+	
+	@PostMapping("/post")
+	public String post(@RequestParam String name) 
+	{
+		return "dddsdsda " + name;
+	}
+
 }
