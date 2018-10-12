@@ -35,7 +35,7 @@ public class ViewController {
 	}
 
 	@GetMapping("/view")	//안드로이드가 온습도를 볼때 콜해야 할 주소
-	public ResponseEntity<TempHumiVO> sendAndroid(@RequestBody TempHumiVO vo) { //안드로이드에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
+	public ResponseEntity<TempHumiVO> sendAndroid() { //안드로이드에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 		try {
 			return new ResponseEntity<>(temHum, HttpStatus.OK);	// 전역변수 temHum인 json을 통째로 리턴보낸다.
 		} catch (Exception e) {
