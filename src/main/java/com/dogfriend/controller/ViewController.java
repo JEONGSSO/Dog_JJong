@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController	//controller + reponseBody 객체를 리턴하면 json으로 출력 자바객체를 json으로 변환(?)
 public class ViewController {
@@ -38,6 +39,20 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 			e.printStackTrace(); //예외 오류
 			return new ResponseEntity<>("fail",HttpStatus.BAD_REQUEST); //성공시 fail bad 담는다.
 		}
+	}
+
+/////////////////////////////////온습도 웹에서 보기//////////////////////////////
+	@PostMapping("/setTempHumi")	//둘다 post여도 되는지 테스트 해보기
+	public ModelAndView vueTest(@RequestBody TempHumiVO temHumVo) {	
+
+		ModelAndView mView = new ModelAndView();
+		temHumVo.setTemp(temHumVo.getTemp());
+		temHumVo.setHumi(temHumVo.getHumi());
+		mView.setViewName("/dogHome");	//jsp 이름
+
+		mView.addObject("temp", temHumVo.getTemp());
+		mView.addObject("humi",temHumVo.getHumi());
+		return mView;
 	}
 
 }

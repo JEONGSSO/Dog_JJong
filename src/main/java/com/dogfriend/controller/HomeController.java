@@ -10,6 +10,6 @@ public class HomeController {
 	public String dogHome() {
 	return "dogHome";	//webapp/WEB-INF/views/dogHome.jsp실행
 	}
-	
+
 }
 

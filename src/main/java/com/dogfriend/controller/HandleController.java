@@ -1,10 +1,6 @@
 package com.dogfriend.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.dogfriend.domain.HandleVO;
-import com.dogfriend.domain.TempHumiVO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
