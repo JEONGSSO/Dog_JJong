@@ -1,14 +1,17 @@
 package com.dogfriend.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.dogfriend.domain.HandleVO;
 import com.dogfriend.domain.TempHumiVO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,12 +32,22 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 
 //////////////////////////온습도 아두이노에서 받기///////////////////////////////////////
 	@PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
-	public ResponseEntity<String> revArduinoTempHumi(@RequestBody TempHumiVO vo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
-		try {
-				temHum.setTemp(vo.getTemp());	//body에서 읽은 값 set해주기
-				temHum.setHumi(vo.getHumi());
-				System.out.println("temp = " + temHum.getTemp() + " humi = " + temHum.getHumi());	//출력
+	public ResponseEntity<String> revArduinoTempHumi(@RequestBody TempHumiVO temHumVo, HandleVO handleVo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
+		
+		// Map<String, Object> map = new HashMap<>();
 
+		int temp = temHumVo.getTemp();
+		int humi = temHumVo.getHumi();
+
+		// map.put("temp", temp);
+		// map.put("humi", humi);
+		
+		try {
+			// temHum.setTemp(getTemp);	//body에서 읽은 값 set해주기
+			// temHum.setHumi(getHumi);
+			// System.out.println("temp = " + temHum.getTemp() + " humi = " + temHum.getHumi());	//출력
+			System.out.println("temp = " + temp + " humi = " + humi);	//출력
+			
 			return new ResponseEntity<>("success",HttpStatus.OK);	//성공시 success에 ok를 담는다.
 
 		} catch (Exception e) {
@@ -43,8 +56,21 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 		}
 	}
 
+	@PostMapping("/model")
+	public @ResponseBody Map<String, Object> tetetest(@RequestBody TempHumiVO temHumVo) {
+		Map<String, Object> map = new HashMap<>();
+
+		int temp = temHumVo.getTemp();
+		int humi = temHumVo.getHumi();
+
+		map.put("temp", temp);
+		map.put("humi", humi);
+
+		return map;
+	}
+
 /////////////////////////////////온습도 웹에서 보기//////////////////////////////
-	@PostMapping("/webview")
+	@PostMapping("/webview")	//	JSON방식으로 jsp에 표현해보기
 	public ModelAndView vueTest(@RequestBody TempHumiVO temHumVo, HandleVO handleVo) {	
 
 		ModelAndView mView = new ModelAndView();
@@ -61,15 +87,4 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 		return mView;
 	}
 
-	// @PostMapping("/22")	//둘다 post여도 되는지 테스트 해보기
-	// public String tetetest(@RequestBody TempHumiVO temHumVo, Model model) {	
-
-	// 	temHumVo.setTemp(temHumVo.getTemp());
-	// 	temHumVo.setHumi(temHumVo.getHumi());
-
-	// 	model.addAttribute("temp", temHumVo.getTemp());
-	// 	model.addAttribute("humi", temHumVo.getHumi());
-
-	// 	return "/dogHome";
-	// }
 }
