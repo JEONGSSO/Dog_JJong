@@ -44,7 +44,7 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 	}
 
 /////////////////////////////////온습도 웹에서 보기//////////////////////////////
-	@PostMapping("/webview")	//둘다 post여도 되는지 테스트 해보기
+	@PostMapping("/webview")
 	public ModelAndView vueTest(@RequestBody TempHumiVO temHumVo, HandleVO handleVo) {	
 
 		ModelAndView mView = new ModelAndView();
@@ -61,15 +61,15 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 		return mView;
 	}
 
-	@PostMapping("/22")	//둘다 post여도 되는지 테스트 해보기
-	public String tetetest(@RequestBody TempHumiVO temHumVo, Model model) {	
+	// @PostMapping("/22")	//둘다 post여도 되는지 테스트 해보기
+	// public String tetetest(@RequestBody TempHumiVO temHumVo, Model model) {	
 
-		temHumVo.setTemp(temHumVo.getTemp());
-		temHumVo.setHumi(temHumVo.getHumi());
+	// 	temHumVo.setTemp(temHumVo.getTemp());
+	// 	temHumVo.setHumi(temHumVo.getHumi());
 
-		model.addAttribute("temp", temHumVo.getTemp());
-		model.addAttribute("humi", temHumVo.getHumi());
+	// 	model.addAttribute("temp", temHumVo.getTemp());
+	// 	model.addAttribute("humi", temHumVo.getHumi());
 
-		return "/dogHome";
-	}
+	// 	return "/dogHome";
+	// }
 }
