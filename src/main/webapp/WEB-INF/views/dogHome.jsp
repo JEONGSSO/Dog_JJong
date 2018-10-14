@@ -17,7 +17,9 @@
     <b>수정 중 : 자동제어 온오프   </b>
         <p>www.dogfriends.site/ctrl</p>
 
-    <div>
+<script src="../../../resources/jquery-3.3.1-min.js"></script>
+
+    <div class = "refresh">
         <p>온도 : ${temp}</p> <!--View Controller 추가-->
         <p>습도 : ${humi}</p>
         <p>전원 : ${isPower}</p><!--Handle Controller 추가할것 미완성-->

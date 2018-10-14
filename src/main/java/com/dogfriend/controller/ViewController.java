@@ -1,9 +1,11 @@
 package com.dogfriend.controller;
 
+import com.dogfriend.domain.HandleVO;
 import com.dogfriend.domain.TempHumiVO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,17 +44,32 @@ public ResponseEntity<TempHumiVO> sendAndroid() {
 	}
 
 /////////////////////////////////온습도 웹에서 보기//////////////////////////////
-	@PostMapping("/setTempHumi")	//둘다 post여도 되는지 테스트 해보기
-	public ModelAndView vueTest(@RequestBody TempHumiVO temHumVo) {	
+	@PostMapping("/webview")	//둘다 post여도 되는지 테스트 해보기
+	public ModelAndView vueTest(@RequestBody TempHumiVO temHumVo, HandleVO handleVo) {	
 
 		ModelAndView mView = new ModelAndView();
+		
 		temHumVo.setTemp(temHumVo.getTemp());
 		temHumVo.setHumi(temHumVo.getHumi());
+		handleVo.setPower(handleVo.isPower());
+
 		mView.setViewName("/dogHome");	//jsp 이름
 
 		mView.addObject("temp", temHumVo.getTemp());
-		mView.addObject("humi",temHumVo.getHumi());
+		mView.addObject("humi", temHumVo.getHumi());
+		mView.addObject("isPower", handleVo.isPower());
 		return mView;
 	}
 
+	@PostMapping("/22")	//둘다 post여도 되는지 테스트 해보기
+	public String tetetest(@RequestBody TempHumiVO temHumVo, Model model) {	
+
+		temHumVo.setTemp(temHumVo.getTemp());
+		temHumVo.setHumi(temHumVo.getHumi());
+
+		model.addAttribute("temp", temHumVo.getTemp());
+		model.addAttribute("humi", temHumVo.getHumi());
+
+		return "/dogHome";
+	}
 }
