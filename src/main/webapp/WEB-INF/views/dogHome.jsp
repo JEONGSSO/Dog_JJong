@@ -25,7 +25,7 @@
         <p>전원 : ${isPower}</p><!--Handle Controller 추가할것 미완성-->
     </div>
 
-    <button id="btn">새로고침 미완성</button>
+    <button id="btn">새로고침 미완성s</button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
