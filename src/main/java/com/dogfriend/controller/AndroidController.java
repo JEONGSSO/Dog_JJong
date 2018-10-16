@@ -4,6 +4,7 @@ import com.dogfriend.domain.HandleVO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +16,12 @@ public class AndroidController {
 
     HandleVO handle = new HandleVO();
 
-    //////////////////////////// 안드로이드에서 버튼 전원 온오프 눌렀을때////////////////////////////////////
+    //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////
     @PostMapping("/setpower") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
     public ResponseEntity<String> setAndroidPower(@RequestBody HandleVO handle) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 
-        handle.setPower(handle.isPower()); // power 받아오면 값을 담아준다. boolean은 isPower == getPower
+        //요거 제이슨 key statePower value on/off = String
+        //handle.setPower(handle.isPower()); // power 받아오면 값을 담아준다. boolean은 isPower == getPower 
         //셋 한걸 아두이노에게 쏘기
         
 
@@ -30,8 +32,8 @@ public class AndroidController {
         }
     }
 
-    /////////////////////////// 안드로이드에서 자동모드 클릭했을때/////////////////////////////////////////////////////
-    @PostMapping("/setauto")
+    /////////////////////////// 안드로이드에서 수동모드 클릭했을때/////////////////////////////////////////////////////
+    @PostMapping("/setmanual")
     public ResponseEntity<String> setAndroidauto(@RequestBody HandleVO handle) {
 
         handle.setAutoMode(handle.isAutoMode()); // boolean 타입

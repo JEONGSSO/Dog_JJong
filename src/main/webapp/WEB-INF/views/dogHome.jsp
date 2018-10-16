@@ -16,11 +16,11 @@
     <b>아두이노 -> 서버 온습도 set : </b>
     <p>www.dogfriends.site/setTempHumi</p>
 
-    <b>안드로이드 -> 아두이노 파워 set :  </b>
+    <b>안드로이드 -> 아두이노 전원 set :  </b>
     <p>www.dogfriends.site/android/setpower</p>
 
-    <b>안드로이드 -> 아두이노 자동모드 set :  </b>
-    <p>www.dogfriends.site/android/setauto</p>
+    <b>안드로이드 -> 아두이노 수동모드 set :  </b>
+    <p>www.dogfriends.site/android/setmanual</p>
 
     <div class = "refresh">
         <p >온도 : ${temp}</p> <!--View Controller 추가-->
