@@ -10,14 +10,17 @@
 </head>
 
 <body>
-    <b>안드로이드 온습도받기 : </b>
+    <b>서버 -> 안드로이드 온습도받기 : </b>
     <p>www.dogfriends.site/view</p>
-    <b>아두이노 온습도 : </b>
-    <p>www.dogfriends.site/setTempHumi</p>
-    <b>수정 중 : 자동제어 온오프   </b>
-    <p>www.dogfriends.site/ctrl</p>
-    
 
+    <b>아두이노 -> 서버 온습도 set : </b>
+    <p>www.dogfriends.site/setTempHumi</p>
+
+    <b>안드로이드 -> 아두이노 파워 set :  </b>
+    <p>www.dogfriends.site/android/setpower</p>
+
+    <b>안드로이드 -> 아두이노 자동모드 set :  </b>
+    <p>www.dogfriends.site/android/setauto</p>
 
     <div class = "refresh">
         <p >온도 : ${temp}</p> <!--View Controller 추가-->
