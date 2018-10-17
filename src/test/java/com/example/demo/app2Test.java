@@ -1,9 +1,5 @@
 package com.example.demo;
 
-import javax.sql.DataSource;
-
-import com.mysql.jdbc.Connection;
-
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;
