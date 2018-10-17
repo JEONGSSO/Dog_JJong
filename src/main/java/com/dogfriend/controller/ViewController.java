@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewController {
 
 	private TempHumiVO temHum = new TempHumiVO();	//temp humi 값 저장할 객체 생성
-	// private HandleVO handle  = new HandleVO();
+	private HandleVO handle  = new HandleVO();
 //////////////////////////안드로이드에서 온습도 볼때///////////////////////////////////////
 	@GetMapping("/view")	//안드로이드가 온습도를 볼때 콜해야 할 주소
 	public ResponseEntity<TempHumiVO> sendAndroid() {
@@ -28,8 +28,8 @@ public class ViewController {
 		}
 	}
 
-	@PostMapping("/test")	//안드로이드가 온습도를 볼때 콜해야 할 주소
-	public ResponseEntity<HandleVO> test(@RequestBody HandleVO handle) {
+	@GetMapping("/test")	//안드로이드가 온습도를 볼때 콜해야 할 주소
+	public ResponseEntity<HandleVO> test() {
 		try {
 				handle.setPower(handle.isPower());
 			return new ResponseEntity<>(handle, HttpStatus.OK);	// 전역변수 temHum인 json을 통째로 안드로이드에게 리턴보낸다. 
@@ -39,21 +39,21 @@ public class ViewController {
 	}
 
 //////////////////////////온습도 아두이노에게서 받기///////////////////////////////////////
-	@PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
-	public ModelAndView rcvArduinoTempHumi(@RequestBody TempHumiVO temHumVo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
+	// @PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
+	// public ModelAndView rcvArduinoTempHumi(@RequestBody TempHumiVO temHumVo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 		
-		ModelAndView mView = new ModelAndView();
-		temHumVo.setTemp(temHumVo.getTemp());
-		temHumVo.setHumi(temHumVo.getHumi());
+	// 	ModelAndView mView = new ModelAndView();
+	// 	temHumVo.setTemp(temHumVo.getTemp());
+	// 	temHumVo.setHumi(temHumVo.getHumi());
 
-		mView.addObject("temp", temHumVo.getTemp());
-		mView.addObject("humi", temHumVo.getHumi());
+	// 	mView.addObject("temp", temHumVo.getTemp());
+	// 	mView.addObject("humi", temHumVo.getHumi());
 
-		mView.setViewName("/dogHome");	//jsp 이름
+	// 	mView.setViewName("/dogHome");	//jsp 이름
 
-		System.out.println("temp = " + temHumVo.getTemp() + " humi = " + temHumVo.getHumi());	//출력
-		return mView;
-	}
+	// 	System.out.println("temp = " + temHumVo.getTemp() + " humi = " + temHumVo.getHumi());	//출력
+	// 	return mView;
+	// }
 
 ////////////////////////////////온습도 웹에서 보기//////////////////////////////
 	@PostMapping("/webview")	//	JSON방식으로 jsp에 표현해보기 webview에다가 보내야만 보임 고칠 것
@@ -88,7 +88,7 @@ public class ViewController {
 	// 	return map;
 	// }
 
-	/*@PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
+	@PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
 	public void revArduinoTempHumi(@RequestBody TempHumiVO temHumVo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 		
 		// int temp = temHumVo.getTemp();
@@ -105,6 +105,6 @@ public class ViewController {
 		// 	e.printStackTrace(); //예외 오류
 		// 	return new ResponseEntity<>("fail",HttpStatus.BAD_REQUEST); //성공시 fail bad 담는다.
 		// }
-	}*/
+	}
 
 }
