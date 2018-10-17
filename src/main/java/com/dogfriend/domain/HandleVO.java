@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class HandleVO{
-    private boolean isPower ;   //스트링?
+    private int power ;   //스트링?
     private boolean manual ;
+    // private int isPower ;   //스트링?
 }
