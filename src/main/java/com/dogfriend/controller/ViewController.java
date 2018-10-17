@@ -89,7 +89,7 @@ public class ViewController {
 	// }
 
 	@PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
-	public void revArduinoTempHumi(@RequestBody TempHumiVO temHumVo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
+	public ResponseEntity<String> revArduinoTempHumi(@RequestBody TempHumiVO temHumVo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 		
 		// int temp = temHumVo.getTemp();
 		// int humi = temHumVo.getHumi();
@@ -99,12 +99,12 @@ public class ViewController {
 
 		System.out.println("temp = " + temHumVo.getTemp() + " humi = " + temHumVo.getHumi());	//출력
 		
-		// try {
-		// 	return new ResponseEntity<>("success",HttpStatus.OK);	//성공시 success에 ok를 담는다.
-		// } catch (Exception e) {
-		// 	e.printStackTrace(); //예외 오류
-		// 	return new ResponseEntity<>("fail",HttpStatus.BAD_REQUEST); //성공시 fail bad 담는다.
-		// }
+		try {
+			return new ResponseEntity<>("success",HttpStatus.OK);	//성공시 success에 ok를 담는다.
+		} catch (Exception e) {
+			e.printStackTrace(); //예외 오류
+			return new ResponseEntity<>("fail",HttpStatus.BAD_REQUEST); //성공시 fail bad 담는다.
+		}
 	}
 
 }

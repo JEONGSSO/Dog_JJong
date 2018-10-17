@@ -19,7 +19,7 @@ public class AndroidController {
 
     //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////
     @PostMapping("/setpower") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
-    public ResponseEntity<String> setAndroidPower(@RequestBody HandleVO handle, HttpServletResponse response) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
+    public ResponseEntity<String> setAndroidPower(@RequestBody HandleVO handle) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 
         //요거 제이슨 key statePower value on/off = String
        //셋 한걸 아두이노에게 바로 아두이노에게 쏴보기
@@ -27,7 +27,6 @@ public class AndroidController {
 
             handle.setPower(handle.isPower()); // power 받아오면 값을 담아준다. boolean은 isPower == getPower 
             System.out.println("power : " + handle.isPower());
-            // response.sendRedirect("location");
             return new ResponseEntity<>("Server set Power OK", HttpStatus.OK); //성공하면 안드로이드에게 성공 리턴
         } catch (Exception e) {
             return new ResponseEntity<>("Server set Fail", HttpStatus.BAD_REQUEST);
