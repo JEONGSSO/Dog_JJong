@@ -30,27 +30,28 @@
 
 
 
-    <div class = "refresh">
-        <p>온도 : ${temp}</p>
-        <p>습도 : ${humi}</p>
-        <p>전원 : ${statePower}</p>
-        <p>수동모드 : ${manual}</p>
+    <div>
+        <p>온도 : "${temp}"</p>
+        <p>습도 : "${humi}"</p>
+        <p>전원 : "${statePower}"</p>
+        <p>수동모드 : "${manual}"</p>
     </div>
 
-    <button id="btn">새로고침 미완성s</button>
+    <button onclick = "refresh()">새로고침</button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <!-- <script>
-        $(document).ready( () => {
-            $("#btn").click( () => {
-                $("p").text("dd");
-            });
-        });
-    </script>
-     -->
     <script>
-
+        function refresh(){
+            let temp = "${temp}",
+                humi = "${humi}",
+                statePower = "${statePower}",
+                manual = "${manual}";
+        }
+    </script>
+    
+    <script>
+       
         $(document).ready( () => {
             $("#btn").click( () => {
                 $.ajax({
