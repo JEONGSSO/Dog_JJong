@@ -27,7 +27,7 @@ public class AndroidController {
 
             handle.setPower(handle.isPower()); // power 받아오면 값을 담아준다. boolean은 isPower == getPower 
             System.out.println("power : " + handle.isPower());
-            response.sendRedirect("location");
+            // response.sendRedirect("location");
             return new ResponseEntity<>("Server set Power OK", HttpStatus.OK); //성공하면 안드로이드에게 성공 리턴
         } catch (Exception e) {
             return new ResponseEntity<>("Server set Fail", HttpStatus.BAD_REQUEST);

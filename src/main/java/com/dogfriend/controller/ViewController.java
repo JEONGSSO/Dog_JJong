@@ -27,7 +27,7 @@ public class ViewController {
 		}
 	}
 
-//////////////////////////온습도 아두이노에서 받기///////////////////////////////////////
+//////////////////////////온습도 아두이노에게서 받기///////////////////////////////////////
 	@PostMapping("/setTempHumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
 	public ModelAndView rcvArduinoTempHumi(@RequestBody TempHumiVO temHumVo) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 		
@@ -52,12 +52,12 @@ public class ViewController {
 		
 		webview.setTemp(webview.getTemp());
 		webview.setHumi(webview.getHumi());
-		webview.setPower(webview.isPower());
+		webview.setStatePower(webview.isStatePower());
 		webview.setManual(webview.isManual());
 		
 		mView.addObject("temp", webview.getTemp());
 		mView.addObject("humi", webview.getHumi());
-		mView.addObject("power", webview.isPower());
+		mView.addObject("statePower", webview.isStatePower());
 		mView.addObject("manual", webview.isManual());
 
 		mView.setViewName("/dogHome");	//jsp 이름
