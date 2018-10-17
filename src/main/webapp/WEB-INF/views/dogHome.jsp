@@ -13,7 +13,7 @@
     <b>서버 -> 안드로이드 온습도받기 : </b>
     <p>www.dogfriends.site/view</p>
 
-    <b>서버 -> 안드로이드 온습도 임시로 보기 : </b>
+    <b>안드로이드 -> 서버  온습도 임시로 보기 : </b>
     <p>www.dogfriends.site/webview</p>
 
     <b>아두이노 -> 서버 온습도 set : </b>

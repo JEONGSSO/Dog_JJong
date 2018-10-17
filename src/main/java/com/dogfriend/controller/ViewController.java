@@ -53,12 +53,12 @@ public class ViewController {
 		webview.setTemp(webview.getTemp());
 		webview.setHumi(webview.getHumi());
 		webview.setPower(webview.isPower());
-		webview.setPower(webview.isPower());
+		webview.setManual(webview.isManual());
 		
 		mView.addObject("temp", webview.getTemp());
 		mView.addObject("humi", webview.getHumi());
 		mView.addObject("power", webview.isPower());
-		mView.addObject("manual", webview.isPower());
+		mView.addObject("manual", webview.isManual());
 
 		mView.setViewName("/dogHome");	//jsp 이름
 		return mView;
