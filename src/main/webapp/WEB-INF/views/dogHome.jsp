@@ -31,10 +31,10 @@
 
 
     <div class = "refresh">
-        <p >온도 : ${temp}</p> <!--View Controller 추가-->
-        <p>습도 : ${humi}</p>
-        <p>전원 : ${statePower}</p><!--Handle Controller 추가할것 미완성-->
-        <p>수동모드 : ${manual}</p>
+        <p>온도 : ${webview.temp}</p> <!--View Controller 추가-->
+        <p>습도 : ${webview.humi}</p>
+        <p>전원 : ${webview.statePower}</p><!--Handle Controller 추가할것 미완성-->
+        <p>수동모드 : ${webview.manual}</p>
     </div>
 
     <button id="btn">새로고침 미완성</button>
