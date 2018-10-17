@@ -1,5 +1,6 @@
 package com.dogfriend.controller;
 
+import com.dogfriend.domain.HandleVO;
 import com.dogfriend.domain.TempHumiVO;
 import com.dogfriend.domain.WebView;
 
@@ -15,13 +16,23 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewController {
 
 	private TempHumiVO temHum = new TempHumiVO();	//temp humi 값 저장할 객체 생성
-
+	// private HandleVO handle  = new HandleVO();
 //////////////////////////안드로이드에서 온습도 볼때///////////////////////////////////////
 	@GetMapping("/view")	//안드로이드가 온습도를 볼때 콜해야 할 주소
 	public ResponseEntity<TempHumiVO> sendAndroid() {
 		try {
 				
 			return new ResponseEntity<>(temHum, HttpStatus.OK);	// 전역변수 temHum인 json을 통째로 안드로이드에게 리턴보낸다. 
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PostMapping("/test")	//안드로이드가 온습도를 볼때 콜해야 할 주소
+	public ResponseEntity<HandleVO> test(@RequestBody HandleVO handle) {
+		try {
+				handle.setPower(handle.isPower());
+			return new ResponseEntity<>(handle, HttpStatus.OK);	// 전역변수 temHum인 json을 통째로 안드로이드에게 리턴보낸다. 
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
