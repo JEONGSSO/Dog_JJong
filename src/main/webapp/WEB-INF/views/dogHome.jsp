@@ -10,19 +10,31 @@
 </head>
 
 <body>
-    <b>안드로이드 온습도받기 : </b>
+    <b>서버 -> 안드로이드 온습도받기 : </b>
     <p>www.dogfriends.site/view</p>
-    <b>아두이노 온습도 : </b>
+
+    <!-- <b>안드로이드 -> 서버  온습도 임시로 보기 : </b>
+    <p>www.dogfriends.site/webview</p> -->
+
+    <b>아두이노 -> 서버 온습도 set : </b>
     <p>www.dogfriends.site/setTempHumi</p>
-    <b>수정 중 : 자동제어 온오프   </b>
-    <p>www.dogfriends.site/ctrl</p>
-    
+
+    <b>안드로이드 -> 서버 전원 set :  </b>
+    <p>www.dogfriends.site/android/setpower</p>
+
+    <b>안드로이드 -> 서버 수동모드 set :  </b>
+    <p>www.dogfriends.site/android/setmanual</p>
+
+    <b>서버 -> 아두이노 전원, 수동모드 :  </b>
+    <p>www.dogfriends.site/arduino/handle</p>
+
 
 
     <div class = "refresh">
-        <p >온도 : ${temp}</p> <!--View Controller 추가-->
+        <p>온도 : ${temp}</p>
         <p>습도 : ${humi}</p>
-        <p>전원 : ${isPower}</p><!--Handle Controller 추가할것 미완성-->
+        <p>전원 : ${statePower}</p>
+        <p>수동모드 : ${manual}</p>
     </div>
 
     <button id="btn">새로고침 미완성s</button>
