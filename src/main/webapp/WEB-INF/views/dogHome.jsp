@@ -13,8 +13,8 @@
     <b>서버 -> 안드로이드 온습도받기 : </b>
     <p>www.dogfriends.site/view</p>
 
-    <b>안드로이드 -> 서버  온습도 임시로 보기 : </b>
-    <p>www.dogfriends.site/webview</p>
+    <!-- <b>안드로이드 -> 서버  온습도 임시로 보기 : </b>
+    <p>www.dogfriends.site/webview</p> -->
 
     <b>아두이노 -> 서버 온습도 set : </b>
     <p>www.dogfriends.site/setTempHumi</p>
@@ -31,9 +31,9 @@
 
 
     <div class = "refresh">
-        <p>온도 : ${temp}</p> <!--View Controller 추가-->
+        <p>온도 : ${temp}</p>
         <p>습도 : ${humi}</p>
-        <p>전원 : ${statePower}</p><!--Handle Controller 추가할것 미완성-->
+        <p>전원 : ${statePower}</p>
         <p>수동모드 : ${manual}</p>
     </div>
 
