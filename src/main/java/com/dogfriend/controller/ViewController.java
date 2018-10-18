@@ -19,7 +19,6 @@ public class ViewController {
 	@GetMapping("/view")	//안드로이드가 온습도를 볼때 콜해야 할 주소
 	public ResponseEntity<TempHumiVO> sendAndroid() {
 		try {
-				// System.out.println(temHumVo);
 			return new ResponseEntity<>(temHumVo, HttpStatus.OK);	// 전역변수 temHum인 json을 통째로 안드로이드에게 리턴보낸다. 
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -58,6 +57,7 @@ public class ViewController {
 		mView.setViewName("/dogHome");	//jsp 이름
 		return mView;
 	}
+
 }
 
 	// @PostMapping("/model")
