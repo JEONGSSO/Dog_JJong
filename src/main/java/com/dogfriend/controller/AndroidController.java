@@ -53,7 +53,7 @@ public class AndroidController {
 
     /////////////////////////// 안드로이드에서 수동모드 클릭했을때/////////////////////////////////////////////////////
     @PostMapping("/setmanual")
-    public ResponseEntity<String> setAndroidManual(@RequestBody HandleVO handle) {
+    public ResponseEntity<HandleVO> setAndroidManual(@RequestBody HandleVO handle) {
 
         //셋 한걸 아두이노에게 바로 아두이노에게 쏴보기 response.sendredirect??
         
@@ -62,9 +62,9 @@ public class AndroidController {
             handle.setManual(handle.isManual()); // boolean 타입
             System.out.println("manual : " + handle.isManual());
 
-            return new ResponseEntity<>("Server set manual ", HttpStatus.OK); //성공하면 안드로이드에게 성공 리턴
+            return new ResponseEntity<>(handle, HttpStatus.OK); //성공하면 안드로이드에게 성공 리턴
         } catch (Exception e) {
-            return new ResponseEntity<>("Server set Fail", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

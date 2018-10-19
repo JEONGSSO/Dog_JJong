@@ -3,10 +3,10 @@ package com.dogfriend.controller;
 import com.dogfriend.domain.HandleVO;
 import com.dogfriend.domain.TempHumiVO;
 
-import org.springframework.asm.Handle;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class HomeController {
@@ -21,6 +21,7 @@ public class HomeController {
 		TempHumiVO temHumVo = new TempHumiVO();
 		HandleVO handle  = new HandleVO();
 			// System.out.println(temHumVo);
+			// System.out.println(handle);
 			model.addAttribute("temp", temHumVo.getTemp());
 			model.addAttribute("humi", temHumVo.getHumi());
 			model.addAttribute("power", handle.getPower());
@@ -28,5 +29,14 @@ public class HomeController {
 
 	}
 
+	// @Autowired
+	// private jpaTest jpatest;
+
+	// @RequestMapping("/jpatest")
+	// public jpaTest postjpatest22 (@RequestBody jpaTestVo jpa) {
+		
+	// 	return (jpaTest) jpatest.findAll();
+	// }
+	
 }
 

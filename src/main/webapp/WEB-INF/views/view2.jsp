@@ -13,7 +13,7 @@
         <div>
                 <p>온도 : "${temp}"</p>
                 <p>습도 : "${humi}"</p>
-                <p>전원 : "${statePower}"</p>
+                <p>전원 : "${power}"</p>
                 <p>수동모드 : "${manual}"</p>
             </div>
         
@@ -25,7 +25,7 @@
                 function refresh(){
                     let temp = "${temp}",
                         humi = "${humi}",
-                        statePower = "${statePower}",
+                        statePower = "${power}",
                         manual = "${manual}";
                 }
             </script>
