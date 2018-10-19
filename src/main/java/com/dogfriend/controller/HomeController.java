@@ -25,7 +25,7 @@ public class HomeController {
 			model.addAttribute("temp", temHumVo.getTemp());
 			model.addAttribute("humi", temHumVo.getHumi());
 			model.addAttribute("power", handle.getPower());
-			model.addAttribute("manual", handle.isManual());
+			model.addAttribute("manual", handle.getManual());
 
 	}
 
