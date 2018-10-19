@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewController {
 
 	private TempHumiVO temHumVo = new TempHumiVO();	//temp humi 값 저장할 객체 생성
+	
 	// private WebView webview = new WebView();
 //////////////////////////안드로이드에서 온습도 볼때///////////////////////////////////////
 	@GetMapping("/view")	//안드로이드가 온습도를 볼때 콜해야 할 주소
@@ -27,11 +28,12 @@ public class ViewController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
+	/////////////////////////////////// GET방식 온습도 ///////////////////////////////////////////////////////////////
 	//settemphumi?temp=32&humi=25
 	@GetMapping("/settemphumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
-	public ModelAndView rcvArduinoTempHumi(@RequestParam ("temp") int temp,
-								   			@RequestParam ("humi") int humi) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
+	public void rcvArduinoTempHumi(@RequestParam ("temp") int temp,
+									@RequestParam ("humi") int humi) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 			ModelAndView mView = new ModelAndView();
 
 			temHumVo.setTemp(temp);	//실서버 셋 해주기
@@ -42,8 +44,6 @@ public class ViewController {
 			mView.setViewName("view2");
 			System.out.println("temp = " + temp + " humi = " + humi);	//출력
 
-			return mView;
-		
 	}
 	// //settemphumi?temp=32&humi=25
 	// @GetMapping("/settemphumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
