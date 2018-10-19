@@ -1,17 +1,12 @@
 package com.dogfriend.controller;
 
 import com.dogfriend.domain.TempHumiVO;
-import com.dogfriend.domain.WebView;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController	//controller + reponseBody 객체를 리턴하면 json으로 출력 자바객체를 json으로 변환(?)
 public class ViewController {
@@ -29,19 +24,14 @@ public class ViewController {
 		}
 	}
 
-	/////////////////////////////////// GET방식 온습도 ///////////////////////////////////////////////////////////////
-	//settemphumi?temp=32&humi=25
+	///////////////////////////////// GET방식 온습도 ///////////////////////////////////////////////////////////////
+	// settemphumi?temp=32&humi=25
 	@GetMapping("/settemphumi")	//온습도 requestMapping + mothod post	//@RequestBody 자바 객체를 만들어준다.
 	public void rcvArduinoTempHumi(@RequestParam ("temp") int temp,
 									@RequestParam ("humi") int humi) {	//아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
-			ModelAndView mView = new ModelAndView();
-
 			temHumVo.setTemp(temp);	//실서버 셋 해주기
 			temHumVo.setHumi(humi);
-			mView.addObject("temp", temp);
-			mView.addObject("humi", humi);
 
-			mView.setViewName("view2");
 			System.out.println("temp = " + temp + " humi = " + humi);	//출력
 
 	}

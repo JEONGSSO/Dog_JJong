@@ -10,25 +10,45 @@
 </head>
 <body>
 
-        <div>
+             <div id="value">
                 <p>온도 : "${temp}"</p>
                 <p>습도 : "${humi}"</p>
-                <p>전원 : "${power}"</p>
-                <p>수동모드 : "${manual}"</p>
+                <p>모드 : "${power}"</p>
             </div>
         
-            <button onclick = "refresh()">새로고침</button>
+            <button onclick = "refresh()">새로고침 </button>
         
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             
             <script>
+
+                let pp = $("#value p");
+
+                // function refresh(){
+                //     $.ajax({
+                //         type : "get",
+                //         url : "view2.jsp",
+                //         dataType : "text",
+                //         success : () =>{
+                //             $(pp.html())
+                //         }
+
+                //     }) temp = "${temp}",
+                //         humi = "${humi}",
+                //         statePower = "${power}",
+                //         manual = "${manual}";
+                //         location.reload();
+                // }
+            </script>
+            <!-- <script>
                 function refresh(){
                     let temp = "${temp}",
                         humi = "${humi}",
                         statePower = "${power}",
                         manual = "${manual}";
+                        location.reload();
                 }
-            </script>
+            </script> -->
     
 </body>
 </html>
