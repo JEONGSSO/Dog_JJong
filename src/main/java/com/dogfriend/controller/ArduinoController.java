@@ -15,8 +15,9 @@ public class ArduinoController{
 
 ////////////////////////////아두이노로 전원, 수동여부  전달////////////////////////////////////
 	@GetMapping("/handle")	//아두이노가 동작 받을때 콜해야 할 주소
-	public int rcvArduinoHandle() {	
-		return arduinoMode;	// power 아두이노에게 리턴 고쳐야한다.
+	public int rcvArduinoHandle() {
+
+		return AndroidController.mode;	// 안드로이드가 지정한 모드를 int로 반환해준다.
 	}
 
 /*//////////////////////////아두이노로 수동모드 값 전달//////////////////////////////////////////////////////////////
