@@ -39,16 +39,15 @@
                 if (socket.readyState !== 1) return;
                 let msg = $('input#msg').val();
                 console.log("msgggggggggggggggg>>" + msg)
-                ws.send(msg);
+                socket.se.send(msg);
             });
         });
         
         var socket = null;
-        var ws = new WebSocket("ws://localhost:8080/dogHome");
-        
+        var ws = new WebSocket("ws://localhost:8080/dogHome"); //소켓을 연다
         function connectWS(){
                 socket = ws;
-        ws.onopen = function () {
+        ws.onopen = function () {   // connection 연결 됐을때
             console.log('Info: connection opened.');
         };
             ws.onmessage = function (event) {
@@ -56,7 +55,7 @@
             };
 
             ws.onclose = function (event) { console.log('Info: connection closed.'); };
-            ws.onerror = function (err) { console.log('Info: connection closed.'); };
+            ws.onerror = function (err) { console.log('Error : ' , err); };
         }
     
 
