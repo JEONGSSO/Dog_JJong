@@ -57,33 +57,32 @@
 			<scope>test</scope>
 		</dependency>
 
-        <!-- MYSQL -->
+	<!-- DB부분 -->
+	<!-- MYSQL -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
-
-		<!-- JPA --> 
+	<!-- JPA ORM사용--> 
 		<dependency>
    		 	<groupId>org.springframework.boot</groupId>
    		 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
-		<!-- JPA Provider (Hibernate) --> 
+	<!-- JPA Provider (Hibernate) --> 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.10.Final</version>
 		</dependency>
-
+	<!--Mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.1.1</version>
         </dependency>
 
-		<!--	vue같은 툴
+	<!--	vue같은 툴
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -95,10 +94,16 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-	<!-- jsp 볼 수 있게 추가 -->
+		
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+
+	<!-- 웹 소켓 -->
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+   	 		<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
 
 	</dependencies>

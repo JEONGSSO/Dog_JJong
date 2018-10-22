@@ -16,4 +16,13 @@
 	
 	 Taskkill /PID <pid> /F	
 	
-	 
+	 public interface UserMapper{
+	@Select("select uname from User where uid=#{uid}")
+	public String getUname(@Param ("uid") String uid);
+	
+	public User getUserInfo(@Param ("uid") String uid);
+	
+	@Select("select * from User limit 100")
+	public List<User> Users();
+	
+}

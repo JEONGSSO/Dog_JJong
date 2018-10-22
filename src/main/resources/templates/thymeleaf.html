@@ -1,23 +1,40 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hello Thymeleaf</title>
+	<meta charset="UTF-8" />
+	<title>Document</title>
 </head>
-
 <body>
-  <dl> 
-    <dt>temp</dt>
-      <dd th:text="${data.temp}"></dd> 
-    <dt>humi</dt>
-      <dd th:text="${data.humi}"></dd>
-    <form action="/post" method="POST">
-      <input type="text" name="name"/ >
-      <input type="submit" value="전송"/>
-    </form>
-    <div th:text="${message}"/>
-  </dl>
+	<h1>Thymeleaf Test</h1>
+	<p th:text="${uname}"></p>	
+	
+	<div th:if="${user}">
+		<div th:text="${user}"></div>
+		<div th:text="${userInfo}"></div>
+		<div th:text="${user.uname}"></div>
+	</div>
+	
+	<div th:unless="${user}">
+		<p>no User!!</p>
+	</div>
+	
+	<ul>
+		<li th:each = "data : ${users}"  th:text = "${data}"></li>
+		<li th:each = "data : ${users}"  th:text = "${data.uid} + ', ' + ${data.uname}"></li>
+		<li th:each = "data : ${usres}"  th:object="${data}">
+			<span th:text="|*{uid}|"></span>
+			<strong th:text="${data.uname}"></strong>
+		</li>
+		
+		<a th:href="@{http://localhost:9090/hello}">HELLO</a>
+		
+		<p th:text="'Name: ' + ${name}"></p>
+		<form method="POST" action="korean">
+			<input type="text" name="name" value="세종대왕" />
+			<button type="submit">KOREAN</button>
+		</form>
+		
+	</ul>
+	
 </body>
-
 </html>

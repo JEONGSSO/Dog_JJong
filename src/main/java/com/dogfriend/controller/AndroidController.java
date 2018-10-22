@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//소켓 공부, 
-
 @RequestMapping("/android")
 @RestController
 public class AndroidController {
@@ -19,9 +17,18 @@ public class AndroidController {
     //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////
     @GetMapping("/setpower") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
     public HandleVO setAndroidPower(@RequestParam("power") int power) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
-            mode = power;   // 1번 자동제어 판단    2번 수동제어 시작  3번 ~~~~~~
-            System.out.println(power);                          //파워를 컨트롤로 바꾸기
-                return handle;  //안드로이드에게 power값 넘겨주기
+        boolean isManual = false;   //수동 모드인지 판단     // 0: 종료(?) 1:자동제어  2:수동제어  3:위    4:아래   5:좌    6:우
+
+        isManual = power == 2 ? true : false; 
+        
+        // if (isManual){      //수동 모드인지 판단  //2가 눌러있어야지만 3456가능
+        //     power 
+        // }
+
+         mode = power;                          
+            System.out.println("mode = " + mode);      
+            
+            return handle;  //안드로이드에게 mode값 넘겨주기
         }
     }
     // //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////

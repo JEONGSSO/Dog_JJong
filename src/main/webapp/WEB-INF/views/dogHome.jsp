@@ -13,24 +13,45 @@
     <b>서버 -> 안드로이드 온습도받기 : </b>
     <p>www.dogfriends.site/view</p>
 
-    <!-- <b>안드로이드 -> 서버  온습도 임시로 보기 : </b>
-    <p>www.dogfriends.site/webview</p> -->
-
     <b>아두이노 -> 서버 온습도 set : </b>
     <p>www.dogfriends.site/setTempHumi</p>
 
-    <b>안드로이드 -> 서버 전원 set :  </b>
+    <b>안드로이드 -> 서버 전원, 모드 set :  </b>
     <p>www.dogfriends.site/android/setpower</p>
 
-    <b>안드로이드 -> 서버 수동모드 set :  </b>
-    <p>www.dogfriends.site/android/setmanual</p>
-
-    <b>서버 -> 아두이노 전원, 수동모드 :  </b>
+    <b>서버 -> 아두이노 모드 전달 :  </b>
     <p>www.dogfriends.site/arduino/handle</p>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        var ws = new WebSocket("ws://localhost:8080/Echo?bno=1234");
+
+        ws.onopen = function () {
+            console.log('Info: connection opened.');
+            // setTimeout( function(){ connect(); }, 1000); // retry connection!!
+        };
 
 
-    <div>
+        ws.onmessage = function (event) {
+            console.log(event.data+'\n');
+        };
+
+
+        ws.onclose = function (event) { console.log('Info: connection closed.'); };
+        ws.onerror = function (err) { console.log('Info: connection closed.'); };
+
+        $('#btnSend').on('click', function(evt) {
+        evt.preventDefault();
+        if (socket.readyState !== 1) return;
+            let msg = $('input#msg').val();
+            ws.send(msg);
+        });
+
+    </script>
+
+
+    <!-- <div>
         <p>온도 : "${temp}"</p>
         <p>습도 : "${humi}"</p>
         <p>전원 : "${statePower}"</p>
@@ -39,8 +60,6 @@
 
     <button onclick = "refresh()">새로고침</button>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
     <script>
         function refresh(){
             let temp = "${temp}",
@@ -66,12 +85,12 @@
     });
     </script>
 
-    <p id="text"></p>
+    <p id="text"></p> -->
 
 <!-- 
     <script src="../../../resources/handlebars-v4.0.12.js"></script>
     <script id="" class="well" type="text/x-handlebars-template"> 
     </script> -->
-    
+
 </body>
 </html>

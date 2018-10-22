@@ -10,7 +10,7 @@ public class HomeController {
 	@GetMapping("/")
 	public String dogHome() {
 		System.out.println("dogHome");
-	return "dogHome";	//webapp/WEB-INF/views/dogHome.jsp실행
+		return "dogHome";				//webapp/WEB-INF/views/dogHome.jsp실행
 	}
 
 	// @GetMapping("/view2")	//안드로이드가 온습도를 볼때 콜해야 할 주소
