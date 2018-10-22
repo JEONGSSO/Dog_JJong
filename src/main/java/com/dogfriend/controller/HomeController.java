@@ -1,35 +1,46 @@
 package com.dogfriend.controller;
 
+import java.util.List;
+
+import com.dogfriend.Persistent.JpaDao;
+import com.dogfriend.domain.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
 public class HomeController {
 
+	
 	@GetMapping("/")
 	public String dogHome() {
-		System.out.println("dogHome");
 		return "dogHome";				//webapp/WEB-INF/views/dogHome.jsp실행
 	}
-
-	// @GetMapping("/view2")	//안드로이드가 온습도를 볼때 콜해야 할 주소
-	// public void sendAndroid(Model model) {
-	// 	TempHumiVO temHumVo = new TempHumiVO();
-	// 	HandleVO handle  = new HandleVO();
-	// 		model.addAttribute("temp", temHumVo.getTemp());
-	// 		model.addAttribute("humi", temHumVo.getHumi());
-	// 		model.addAttribute("power", handle.getPower());
-	// }
-
 	// @Autowired
-	// private jpaTest jpatest;
-
-	// @RequestMapping("/jpatest")
-	// public jpaTest postjpatest22 (@RequestBody jpaTestVo jpa) {
-		
-	// 	return (jpaTest) jpatest.findAll();
-	// }
+	// JpaDao dao;
 	
+	// @PostMapping("/regist")
+	// @ResponseBody
+	// public User regist(@RequestBody User user) {
+	// 	dao.save(user);
+	// 	System.out.println("가입되었습니다.");
+	// 	return user;
+	// }
+
+	// @RequestMapping("/list")
+	// @ResponseBody
+    // public List<User> userList(Model model) {
+    //     List<User> users = dao.findAll();
+    //     model.addAttribute("list", users);
+
+    //     return users;
+    // }
 }
 

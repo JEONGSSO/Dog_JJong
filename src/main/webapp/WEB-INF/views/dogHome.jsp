@@ -24,73 +24,86 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <input type="text" id="msg">
+        <button id="btnSend">Send</button>
+    </input>
+
     <script>
-        var ws = new WebSocket("ws://localhost:8080/Echo?bno=1234");
+
+        
+        $(document).ready(  function() {
+            connectWS();    
+            
+            $('#btnSend').on('click', function(evt) {
+                evt.preventDefault();
+                if (socket.readyState !== 1) return;
+                let msg = $('input#msg').val();
+                console.log("msgggggggggggggggg>>" + msg)
+                ws.send(msg);
+            });
+        });
+        
+        var socket = null;
+        
+        function connectWS(){
+            var ws = new WebSocket("ws://localhost:8080/dogHome");
+                socket = ws;
 
         ws.onopen = function () {
             console.log('Info: connection opened.');
-            // setTimeout( function(){ connect(); }, 1000); // retry connection!!
         };
+            ws.onmessage = function (event) {
+                console.log("ReceiveMessage:", event.data+'\n');
+            };
 
-
-        ws.onmessage = function (event) {
-            console.log(event.data+'\n');
-        };
-
-
-        ws.onclose = function (event) { console.log('Info: connection closed.'); };
-        ws.onerror = function (err) { console.log('Info: connection closed.'); };
-
-        $('#btnSend').on('click', function(evt) {
-        evt.preventDefault();
-        if (socket.readyState !== 1) return;
-            let msg = $('input#msg').val();
-            ws.send(msg);
-        });
-
-    </script>
-
-
-    <!-- <div>
-        <p>온도 : "${temp}"</p>
-        <p>습도 : "${humi}"</p>
-        <p>전원 : "${statePower}"</p>
-        <p>수동모드 : "${manual}"</p>
-    </div>
-
-    <button onclick = "refresh()">새로고침</button>
-
-    <script>
-        function refresh(){
-            let temp = "${temp}",
-                humi = "${humi}",
-                statePower = "${statePower}",
-                manual = "${manual}";
+            ws.onclose = function (event) { console.log('Info: connection closed.'); };
+            ws.onerror = function (err) { console.log('Info: connection closed.'); };
         }
-    </script>
     
-    <script>
-       
-        $(document).ready( () => {
-            $("#btn").click( () => {
-                $.ajax({
-                    url : "/setTempHumi",
-                    method : "POST",
-                    data : {
-                            temp : {temp},
-                            humi : {humi}
-                    }
-                });
-        });
-    });
+
     </script>
 
-    <p id="text"></p> -->
+         <!-- <div>
+//             <p>온도 : "${temp}"</p>
+//             <p>습도 : "${humi}"</p>
+//             <p>전원 : "${statePower}"</p>
+//             <p>수동모드 : "${manual}"</p>
+//         </div>
+//     </script>
+
+//     <button onclick = "refresh()">새로고침</button>
+
+//     <script>
+//         function refresh(){
+//             let temp = "${temp}",
+//                 humi = "${humi}",
+//                 statePower = "${statePower}",
+//                 manual = "${manual}";
+//         }
+//     </script>
+    
+//     <script>
+       
+//         $(document).ready( () => {
+//             $("#btn").click( () => {
+//                 $.ajax({
+//                     url : "/setTempHumi",
+//                     method : "POST",
+//                     data : {
+//                             temp : {temp},
+//                             humi : {humi}
+//                     }
+//                 });
+//         });
+//     });
+//     </script>
+
+//     <p id="text"></p> -->
 
 <!-- 
-    <script src="../../../resources/handlebars-v4.0.12.js"></script>
-    <script id="" class="well" type="text/x-handlebars-template"> 
-    </script> -->
+//     <script src="../../../resources/handlebars-v4.0.12.js"></script>
+//     <script id="" class="well" type="text/x-handlebars-template"> 
+//     </script> -->
 
 </body>
 </html>

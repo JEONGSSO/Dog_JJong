@@ -14,23 +14,26 @@ public class AndroidController {
     HandleVO handle = new HandleVO();
     public static int mode; //일단 제품 하나로
 
-    //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////
+//////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////
+
     @GetMapping("/setpower") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
     public HandleVO setAndroidPower(@RequestParam("power") int power) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
-        boolean isManual = false;   //수동 모드인지 판단     // 0: 종료(?) 1:자동제어  2:수동제어  3:위    4:아래   5:좌    6:우
 
-        isManual = power == 2 ? true : false; 
+        mode = power;
+        System.out.println("mode = " + mode);
+
+        return handle;  //안드로이드에게 mode값 넘겨주기
+    }
+
+    @GetMapping("/setmanual") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
+    public HandleVO setAndroidsetManual(@RequestParam("manual") int manual) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
         
-        // if (isManual){      //수동 모드인지 판단  //2가 눌러있어야지만 3456가능
-        //     power 
-        // }
-
-         mode = power;                          
-            System.out.println("mode = " + mode);      
+        mode = manual;
+        System.out.println("mode = " + mode);
             
             return handle;  //안드로이드에게 mode값 넘겨주기
-        }
     }
+}
     // //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////
     // @GetMapping("/setpower") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
     // public ResponseEntity<HandleVO> setAndroidPower(@RequestParam("power") int power) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
