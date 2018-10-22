@@ -44,11 +44,10 @@
         });
         
         var socket = null;
+        var ws = new WebSocket("ws://localhost:8080/dogHome");
         
         function connectWS(){
-            var ws = new WebSocket("ws://localhost:8080/dogHome");
                 socket = ws;
-
         ws.onopen = function () {
             console.log('Info: connection opened.');
         };

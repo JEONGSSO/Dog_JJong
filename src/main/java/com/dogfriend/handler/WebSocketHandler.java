@@ -1,7 +1,7 @@
 package com.dogfriend.handler;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -10,16 +10,22 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 public class WebSocketHandler extends TextWebSocketHandler {
 
-    Map<String, WebSocketSession> map = new HashMap<>();
+    List<WebSocketSession> sessions = new ArrayList<>();
     
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception{
         System.out.println("afterConnectionEstablished" + session);
+        sessions.add(session);
+        
     };
     
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception{
         System.out.println("handleTextMessage : " + session + " : " + message);
+        String senderId = session.getId();
+        for (WebSocketSession sess : sessions) {
+            sess.sendMessage(new TextMessage(senderId + " : " + message.getPayload()));
+        }
     };
     
     @Override
