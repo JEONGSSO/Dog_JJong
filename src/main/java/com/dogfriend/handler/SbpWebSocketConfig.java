@@ -11,7 +11,7 @@ public class SbpWebSocketConfig implements WebSocketConfigurer{ //상속을 받�
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        //소켓 패스 정의를 여기다가 dogHome이 들어오면 내가처리한다
+        //소켓 패스 정의를 여기다가. dogHome이 들어오면 내가처리한다
         registry.addHandler(new WebSocketHandler() , "/dogHome").setAllowedOrigins("*");    //도메인이 다를수도 있어서 써야한다.
     }
 }

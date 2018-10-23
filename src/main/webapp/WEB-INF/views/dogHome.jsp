@@ -31,20 +31,32 @@
     <script>
 
         
-        $(document).ready(  function() {
+        $(document).ready(  () => {
             connectWS();    
             
-            $('#btnSend').on('click', function(evt) {
+            $('#btnSend').on('click', (evt) => {
                 evt.preventDefault();
                 if (socket.readyState !== 1) return;
                 let msg = $('input#msg').val();
                 console.log("msgggggggggggggggg>>" + msg)
                 socket.se.send(msg);
             });
+
+            $("#msg").keydown((key) => {
+
+            if (key.keyCode == 13) {// 엔터
+
+                sendMessage();
+
+                $('#msg').val('')
+                }
+
         });
-        
+    });
+
         var socket = null;
-        var ws = new WebSocket("ws://localhost:8080/dogHome"); //소켓을 연다
+         // 웹소켓을 지정한 url로 연결한다.
+        var ws = new WebSocket("ws://localhost:8080/dogHome");
         function connectWS(){
                 socket = ws;
         ws.onopen = function () {   // connection 연결 됐을때
@@ -57,7 +69,6 @@
             ws.onclose = function (event) { console.log('Info: connection closed.'); };
             ws.onerror = function (err) { console.log('Error : ' , err); };
         }
-    
 
     </script>
 

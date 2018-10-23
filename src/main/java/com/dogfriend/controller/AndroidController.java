@@ -15,7 +15,6 @@ public class AndroidController {
     public static int mode; //일단 제품 하나로
 
 //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////
-
     @GetMapping("/setpower") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
     public HandleVO setAndroidPower(@RequestParam("power") int power) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
 
@@ -24,14 +23,13 @@ public class AndroidController {
 
         return handle;  //안드로이드에게 mode값 넘겨주기
     }
-
     @GetMapping("/setmanual") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
     public HandleVO setAndroidsetManual(@RequestParam("manual") int manual) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
         
         mode = manual;
         System.out.println("mode = " + mode);
             
-            return handle;  //안드로이드에게 mode값 넘겨주기
+        return handle;  //안드로이드에게 mode값 넘겨주기
     }
 }
     // //////////////////////////// 안드로이드에서 버튼 전원 온오프(자동모드) 눌렀을때////////////////////////////////////

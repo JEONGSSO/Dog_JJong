@@ -23,7 +23,7 @@ public class HomeController {
 	public String dogHome() {
 		return "dogHome";				//webapp/WEB-INF/views/dogHome.jsp실행
 	}
-	// @Autowired
+	// @Autowired	//JPA DB 부분
 	// JpaDao dao;
 	
 	// @PostMapping("/regist")
