@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ArduinoController{
 
-////////////////////////////아두이노로 전원, 수동여부  전달////////////////////////////////////
+////////////////////////////아두이노로 자동, 수동조작  전달////////////////////////////////////
 	@GetMapping("/handle")	//아두이노가 동작 받을때 콜해야 할 주소
 		public int rcvArduinoHandle() {
 		return AndroidController.mode;	// 안드로이드가 지정한 모드를 int로 반환해준다.

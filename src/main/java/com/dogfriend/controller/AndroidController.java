@@ -23,7 +23,7 @@ public class AndroidController {
 
         return handle;  //안드로이드에게 mode값 넘겨주기
     }
-    @GetMapping("/setmanual") // 안드로이드가 전원 온오프 누를때 콜해야 할 주소
+    @GetMapping("/setmanual") // 안드로이드가 수동모드 콜해야 할 주소
     public HandleVO setAndroidsetManual(@RequestParam("manual") int manual) { // 아두이노에서 온 값을 @RequestBody는 자바객체로 만들어 vo담음
         
         mode = manual;

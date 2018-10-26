@@ -19,8 +19,16 @@
     <b>안드로이드 -> 서버 전원, 모드 set :  </b>
     <p>www.dogfriends.site/android/setpower</p>
 
-    <b>서버 -> 아두이노 모드 전달 :  </b>
+    <b>서버 -> 아두이노 자동제어 전달 :  </b>
     <p>www.dogfriends.site/arduino/handle</p>
+
+    <b>서버 -> 아두이노 수동모드 전달 :  </b>
+    <p>www.dogfriends.site/arduino/manual</p>
+
+
+
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
