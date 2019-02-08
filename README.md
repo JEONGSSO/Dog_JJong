@@ -10,12 +10,10 @@ Used Tool
 
 #### STS, Vs Code (Spring boot)
 
-### Communication Tool
+## Communication Tool
 
 #### Slack
 
 #### Trello
 
 #### Google Drive
-
-![Alt text](path\gcp.jpg)
