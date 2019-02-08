@@ -2,7 +2,7 @@
  
 Used Tool
 -----------------------------------
-#### Google Cloud Flatform
+#### Google Cloud Platform
 
 #### Putty
 
