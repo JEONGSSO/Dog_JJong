@@ -1,4 +1,4 @@
-# DOGFRIENDS 서버 (Dog_JJong)
+# 강아지 장난감 DOGFRIENDS 서버 (Dog_JJong) (안드로이드, 아두이노)
  
 Used Tool
 -----------------------------------
